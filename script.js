@@ -10,7 +10,8 @@ function loadFoto(rangeFoto){
     .then(res => res.photos).then(a => {
         let arr=[];
         for(let i=0; i < limit; i++){
-            arr.push(a[i].url);
+            arr.push(a[i]);
+            console.log(a[i])
         }
         //console.log(arr);
         return arr;
@@ -20,7 +21,9 @@ function loadFoto(rangeFoto){
             //createEl(b);
             for(let i = 0; i < limit; i++ ){
                 let foto = temp.content.cloneNode(true);
-                foto.getElementById('ft').setAttribute('src', b[i]);
+                foto.getElementById('ft').setAttribute('src', b[i].url);
+                foto.getElementById('ftitle').textContent= b[i].title;
+                foto.getElementById('descr').textContent= b[i].description;
                 console.log(b[i]);
                 canv.appendChild(foto);
         }
