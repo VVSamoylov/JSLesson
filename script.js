@@ -12,19 +12,16 @@ function loadFoto(rangeFoto){
         for(let i=0; i < limit; i++){
             arr.push(a[i].url);
         }
-        //console.log(arr);
         return arr;
         }
         ).then(b =>{
-           // console.log(b);
-            //createEl(b);
             for(let i = 0; i < limit; i++ ){
                 let foto = temp.content.cloneNode(true);
                 foto.getElementById('ft').setAttribute('src', b[i]);
                 console.log(b[i]);
                 canv.appendChild(foto);
         }
-     } );
+     } ).catch(e => alert("Что то пошло не так!! "));
     
 }
 
